@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.adesso.de/schema/scala http://www.adesso.de/schema/scala-0.1.xsd
+		"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:scala="http://www.adesso.de/schema/scala">
+
+	<bean class="de.adesso.scalaspring.xmlnamespace.ScalaBean">
+		<property name="list" >
+			<scala:list >
+				<value type="java.lang.Integer">42</value>
+				<value type="java.lang.Integer">21</value>
+			</scala:list>
+		</property>
+	</bean>
+
+</beans>
