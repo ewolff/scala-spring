@@ -3,7 +3,7 @@ import org.junit.runner.RunWith
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.transaction.annotation.Transactional
 
-@ContextConfiguration(Array("/spring/xmlSpringConfig.xml"))
+@ContextConfiguration(value = Array("/spring/xmlSpringConfig.xml"), inheritLocations = false)
 class XmlSpringConfigTest extends CustomerDAOTest {
 
 }
