@@ -14,7 +14,7 @@ import de.adesso.scalaspring.Config
 abstract class CustomerDAOTest extends Config {
   
   @Autowired
-  var customerDAO : CustomerDAO = null
+  var customerDAO : CustomerDAO = _
   
   @Test
   def testSaveDelete() {

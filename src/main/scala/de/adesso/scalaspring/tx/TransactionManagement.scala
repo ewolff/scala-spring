@@ -12,14 +12,12 @@ trait TransactionManagement {
 
   @Autowired
   var txManager: PlatformTransactionManager = null
-  
-  
-    implicit def rowMapperImplicit[T](func:  => T) = {
+
+  implicit def txCallbackImplicit[T](func: => T) = {
     new TransactionCallback[T] {
-      def doInTransaction( status : TransactionStatus) = func.asInstanceOf[T]
+      def doInTransaction(status: TransactionStatus) = func.asInstanceOf[T]
     }
   }
-
 
   def transactional[T](propagation: Propagation = Propagation.REQUIRED,
     isolation: Isolation = Isolation.DEFAULT,
@@ -28,7 +26,7 @@ trait TransactionManagement {
     rollbackFor: List[Throwable] = List(),
     noRollbackFor: List[Throwable] = List())(func: => T): T = {
     val txAttribute = new TransactionAttributeWithRollbackRules(propagation, isolation, readOnly, timeout, rollbackFor, noRollbackFor)
-    val txTemplate = new TransactionTemplate(txManager,txAttribute)
+    val txTemplate = new TransactionTemplate(txManager, txAttribute)
     txTemplate.execute(func)
   }
 

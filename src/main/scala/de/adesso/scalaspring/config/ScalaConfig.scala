@@ -12,7 +12,7 @@ import de.adesso.scalaspring.service.Service1
 class ScalaConfig {
 
   @Autowired
-  var dataSource: DataSource = null
+  val dataSource: DataSource = null 
 
   @Bean
   def transactionManager() = new DataSourceTransactionManager(dataSource)

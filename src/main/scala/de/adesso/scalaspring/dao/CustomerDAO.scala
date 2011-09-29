@@ -35,7 +35,7 @@ class CustomerDAO(dataSource: DataSource) {
   def findById(id: Integer): Option[Customer] = {
     val result: Buffer[Customer] = jdbcTemplate.query(
       "SELECT C.ID, C.NAME, C.FIRSTNAME, C.BALANCE FROM CUSTOMER C WHERE C.ID=?",
-      (rs: ResultSet, rowNum: Int) => {
+      (rs: ResultSet) => {
         Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4))
       },
       id)
