@@ -23,8 +23,8 @@ trait TransactionManagement {
     isolation: Isolation = Isolation.DEFAULT,
     readOnly: Boolean = false,
     timeout: Int = TransactionDefinition.TIMEOUT_DEFAULT,
-    rollbackFor: List[Throwable] = List(),
-    noRollbackFor: List[Throwable] = List())(func: => T): T = {
+    rollbackFor: List[Class[_ <: Throwable]] = List(),
+    noRollbackFor: List[Class[_ <: Throwable]] = List())(func: => T): T = {
     val txAttribute = new TransactionAttributeWithRollbackRules(propagation, isolation, readOnly, timeout, rollbackFor, noRollbackFor)
     val txTemplate = new TransactionTemplate(txManager, txAttribute)
     txTemplate.execute(func)
