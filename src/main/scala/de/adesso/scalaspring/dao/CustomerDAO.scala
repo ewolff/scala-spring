@@ -25,20 +25,20 @@ class CustomerDAO(dataSource: DataSource) {
     Customer(id, customer.name, customer.firstname, customer.balance)
   }
 
-  def deleteById(id: Integer) =
-    jdbcTemplate.update("DELETE FROM CUSTOMER WHERE ID=?", id)
+  def deleteById(id: Int) =
+    jdbcTemplate.update("DELETE FROM CUSTOMER WHERE ID=?", id : java.lang.Integer)
  
 
   def count(): Int = 
     jdbcTemplate.queryForInt("SELECT COUNT(*) FROM CUSTOMER")
 
-  def findById(id: Integer): Option[Customer] = {
+  def findById(id: Int): Option[Customer] = {
     val result: Buffer[Customer] = jdbcTemplate.query(
       "SELECT C.ID, C.NAME, C.FIRSTNAME, C.BALANCE FROM CUSTOMER C WHERE C.ID=?",
       (rs: ResultSet) => {
         Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4))
       },
-      id)
+      id : java.lang.Integer)
     result.headOption
   }
 
