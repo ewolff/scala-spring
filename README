@@ -4,4 +4,6 @@ In particular:
 - Different Dependency Injection styles (Annotation, JavaConfig, XML)
 - Namespace for Scala collections
 - Demo for using Scala function with Spring's Template
+
+You can find a presentation about it at http://www.slideshare.net/ewolff/scala-and-spring .
  
