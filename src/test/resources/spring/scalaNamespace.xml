@@ -3,16 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
-		http://www.adesso.de/schema/scala http://www.adesso.de/schema/scala-0.1.xsd
-		"
+		http://www.adesso.de/schema/scala http://www.adesso.de/schema/scala-0.2.xsd"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:scala="http://www.adesso.de/schema/scala">
 
 	<bean class="de.adesso.scalaspring.xmlnamespace.ScalaBean">
-		<property name="list" >
-			<scala:list >
+		<property name="list">
+			<scala:list>
 				<value type="java.lang.Integer">42</value>
 				<value type="java.lang.Integer">21</value>
 			</scala:list>
+		</property>
+		<property name="set">
+			<scala:set>
+				<value type="java.lang.Integer">42</value>
+				<value type="java.lang.Integer">21</value>
+			</scala:set>
+		</property>
+		<property name="map">
+			<scala:map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="42" value="hello42" />
+				<entry key="21" value="hello21" />
+			</scala:map>
 		</property>
 	</bean>
 

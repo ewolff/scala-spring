@@ -43,14 +43,14 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<!-- xsd:element name="set">
+	<xsd:element name="set">
 		<xsd:annotation>
-			<xsd:documentation source="java:org.springframework.beans.factory.config.SetFactoryBean">
-	Builds a Set instance of the specified type, populated with the specified content.
+			<xsd:documentation source="scala:de.adesso.scalaspring.xmlnamespace.SetFactoryBean.scala">
+	Builds a Scala Set instance of the specified type, populated with the specified content.
 			</xsd:documentation>
 			<xsd:appinfo>
 				<tool:annotation>
-					<tool:exports type="java.util.Set"/>
+					<tool:exports type="scala.collection.immutable.Set"/>
 				</tool:annotation>
 			</xsd:appinfo>
 		</xsd:annotation>
@@ -58,16 +58,6 @@
 			<xsd:complexContent>
 				<xsd:extension base="beans:listOrSetType">
 					<xsd:attribute name="id" type="xsd:ID"/>
-					<xsd:attribute name="set-class" type="xsd:string">
-						<xsd:annotation>
-							<xsd:appinfo>
-								<tool:annotation>
-									<tool:expected-type type="java.lang.Class"/>
-									<tool:assignable-to type="java.util.Set"/>
-								</tool:annotation>
-							</xsd:appinfo>
-						</xsd:annotation>
-					</xsd:attribute>
 					<xsd:attribute name="scope" type="xsd:string">
 						<xsd:annotation>
 							<xsd:documentation><![CDATA[
@@ -86,12 +76,12 @@
 
 	<xsd:element name="map">
 		<xsd:annotation>
-			<xsd:documentation source="java:org.springframework.beans.factory.config.MapFactoryBean">
-	Builds a Map instance of the specified type, populated with the specified content.
+			<xsd:documentation source="scala:de.adesso.scalaspring.xmlnamespace.MapFactoryBean.scala">
+	Builds a Scala Map instance of the specified type, populated with the specified content.
 			</xsd:documentation>
 			<xsd:appinfo>
 				<tool:annotation>
-					<tool:exports type="java.util.Map"/>
+					<tool:exports type="scala.collection.immutable.Map"/>
 				</tool:annotation>
 			</xsd:appinfo>
 		</xsd:annotation>
@@ -125,7 +115,7 @@
 		</xsd:complexType>
 	</xsd:element>
 
-	<xsd:element name="properties">
+	<!-- xsd:element name="properties">
 		<xsd:annotation>
 			<xsd:documentation source="java:org.springframework.beans.factory.config.PropertiesFactoryBean">
 	Loads a Properties instance from the resource location specified by the '<code>location</code>' attribute.

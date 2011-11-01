@@ -20,4 +20,20 @@ class ScalaXmlNamespaceTest {
     Assert.assertEquals(21, scalaBean.list(1))
   }
 
+  @Test
+  def testSet() = {
+    Assert.assertEquals(2, scalaBean.set.size)
+    Assert.assertTrue(scalaBean.set.contains(42))
+    Assert.assertTrue(scalaBean.set.contains(21))
+  }
+
+  @Test
+  def testMap() = {
+    Assert.assertEquals(2, scalaBean.map.size)
+    def a=scalaBean.map.keySet.first
+    Assert.assertEquals("hello42", scalaBean.map.get("42").get)
+    Assert.assertEquals("hello21", scalaBean.map.get("21").get)
+    
+  }
+
 }
