@@ -5,11 +5,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.ContextConfiguration
 import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
-import de.adesso.scalaspring.dao.CustomerDAO
+import de.adesso.scalaspring.dao.NoTxCustomerDAO
 import de.adesso.scalaspring.domain.Customer
 import org.junit.Assert
 import org.springframework.transaction.annotation.Transactional
 import de.adesso.scalaspring.Config
+import de.adesso.scalaspring.dao.CustomerDAO
 
 abstract class CustomerDAOTest extends Config {
   

@@ -1,6 +1,6 @@
 package de.adesso.scalaspring.tx
 import org.springframework.beans.factory.annotation.Autowired
-import de.adesso.scalaspring.dao.CustomerDAO
+import de.adesso.scalaspring.dao.NoTxCustomerDAO
 import de.adesso.scalaspring.Config
 import org.springframework.transaction.annotation.Propagation
 import de.adesso.scalaspring.domain.Customer
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 class TransactionTest extends Config with TransactionManagement  {
 
   @Autowired
-  var customerDAO: CustomerDAO = null
+  var customerDAO: NoTxCustomerDAO = null
 
   @Test
   def transactionTest() = {
@@ -33,7 +33,6 @@ class TransactionTest extends Config with TransactionManagement  {
     try {
       transactional(propagation = Propagation.REQUIRED) {
         customerDAO.save(Customer(0, "Wolff", "Eberhard", 42.0))
-
       }
     } catch {
       case ex => {

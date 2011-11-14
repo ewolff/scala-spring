@@ -14,7 +14,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="customerDAO" class="de.adesso.scalaspring.dao.CustomerDAO">
+	<bean id="customerDAO" class="de.adesso.scalaspring.dao.NoTxCustomerDAO">
 		<constructor-arg ref="dataSource" />
 	</bean>
 
